@@ -3,6 +3,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import MainLayout from "../Layouts/MainLayout";
 import SingleProductDetails from "../components/SingleProductDetails";
 import AddNewProduct from "../components/dashboard/AddNewProduct";
+import EditProduct from "../components/dashboard/EditProduct";
 import ManageAllProducts from "../components/dashboard/ManageAllProducts";
 import Contact from "../pages/Contact/Contact";
 import ErrorPage from "../pages/Error/ErrorPage";
@@ -73,6 +74,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddNewProduct />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: `/dashboard/edit-product/:id`,
+        element: (
+          <PrivateRoute>
+            <EditProduct />
           </PrivateRoute>
         ),
       },

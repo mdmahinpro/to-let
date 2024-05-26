@@ -3,16 +3,16 @@
     {
       "id": "1",
       "title": "Air Max 270",
-      "brand": "Nike",
-      "price": "160",
+      "brand": "Niker",
+      "price": "1603",
       "description": "The Nike Air Max 270 combines modern comfort with a throwback style inspired by the Air Max 180 and Air Max 93.",
       "image_url": "https://img.freepik.com/free-psd/running-shoes-sneakers-transparent-background_84443-1654.jpg?t=st=1716454923~exp=1716458523~hmac=b92da332b8a1f96366f25dffb2f1ece13d842e4afe9417b21e94e4009f93b09c&w=1480"
     },
     {
       "id": "2",
-      "title": "UltraBoost 21",
+      "title": "UltraBoost 183",
       "brand": "Adidas",
-      "price": 180,
+      "price": "183",
       "description": "The Adidas UltraBoost 21 features a bold new design with an improved Boost midsole for ultimate comfort and energy return.",
       "image_url": "https://img.freepik.com/free-psd/running-shoes-sneakers-transparent-background_84443-1610.jpg?t=st=1716454855~exp=1716458455~hmac=7bbba604387bb3447eb82633eaf611178ba651580f20fd9d4a5610fa1c6bbd40&w=1480"
     },
@@ -20,9 +20,25 @@
       "id": "3",
       "title": "Classic Leather",
       "brand": "Reebok",
-      "price": 75,
+      "price": "175",
       "description": "Reebok's Classic Leather sneakers are timeless icons, offering everyday comfort and a sleek look with their soft leather upper.",
       "image_url": "https://img.freepik.com/free-psd/running-shoes-sneakers-transparent-background_84443-1659.jpg?t=st=1716454935~exp=1716458535~hmac=6e3b9b287577c5006087b1d65aa8d14583b60fb12f383e77c2563e3262aa46ce&w=1480"
+    },
+    {
+      "id": "4",
+      "title": "Sada Juta",
+      "brand": "Band ",
+      "price": "230",
+      "description": "Ash Sada shoe",
+      "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D"
+    },
+    {
+      "id": "4",
+      "title": "HEWGGE wweh",
+      "brand": "eheh",
+      "price": "235",
+      "description": "htdherherher  rehreherrj",
+      "image_url": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNob2VzfGVufDB8fDB8fHww"
     }
   ]
 }
