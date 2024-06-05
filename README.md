@@ -6,11 +6,11 @@ This To-Let platform is designed to help users find and list properties for rent
 ## Features
 * User Authentication: Secure login with Google or using a signup form.
 * List Properties: Users can create ads for their properties, specifying details such as title, price, location, number of bedrooms and bathrooms, availability, and more.
-** Search and Filter: Dynamic searching and filtering capabilities allow users to find properties based on various criteria.
-** Property Management: Users can manage their listings by updating or deleting them as necessary.
-** Image Uploads: Support for uploading multiple images for each property.
-** Secure Transactions: All sensitive routes (like those handling CRUD operations) are secured using JWT tokens to ensure that only authenticated users can access them.
-** Responsive Design: The site is responsive and designed to work on both desktop and mobile devices.
+* Search and Filter: Dynamic searching and filtering capabilities allow users to find properties based on various criteria.
+* Property Management: Users can manage their listings by updating or deleting them as necessary.
+* Image Uploads: Support for uploading multiple images for each property.
+* Secure Transactions: All sensitive routes (like those handling CRUD operations) are secured using JWT tokens to ensure that only authenticated users can access them.
+* Responsive Design: The site is responsive and designed to work on both desktop and mobile devices.
 Local Setup
 
 ## Prerequisites:
