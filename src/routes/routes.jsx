@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
             `http://localhost:5000/tolets/${params.id}`
           );
           if (!response.ok) {
-            throw new Error(`Could not fetch product with id ${params.id}`);
+            throw new Error(`Could not fetch tolet with id ${params.id}`);
           }
           return response.json();
         },

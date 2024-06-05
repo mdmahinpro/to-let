@@ -39,8 +39,8 @@ function ManageAllTolets() {
           method: "DELETE",
         });
         setShowToast(true);
-        setTimeout(() => setShowToast(false), 3000); // Hide toast after 3 seconds
-        fetchTolets(); // Fetch the updated list of products after deletion
+        setTimeout(() => setShowToast(false), 3000);
+        fetchTolets();
       } catch (error) {
         console.error("Error:", error);
       }
