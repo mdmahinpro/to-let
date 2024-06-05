@@ -4,7 +4,7 @@
 This To-Let platform is designed to help users find and list properties for rent. It allows property owners to advertise their properties by adding detailed information and images, and prospective tenants can search for properties based on their needs.
 
 ## Features
-** User Authentication: Secure login with Google or using a signup form.
+**User Authentication: Secure login with Google or using a signup form.
 ** List Properties: Users can create ads for their properties, specifying details such as title, price, location, number of bedrooms and bathrooms, availability, and more.
 ** Search and Filter: Dynamic searching and filtering capabilities allow users to find properties based on various criteria.
 ** Property Management: Users can manage their listings by updating or deleting them as necessary.
