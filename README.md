@@ -1,4 +1,5 @@
-To-Let Platform
+#To-Let Platform
+
 Description
 This To-Let platform is designed to help users find and list properties for rent. It allows property owners to advertise their properties by adding detailed information and images, and prospective tenants can search for properties based on their needs.
 
@@ -17,7 +18,7 @@ Node.js
 MongoDB
 Git
 Cloning the repository:
-
+```
 git clone -routeName
 Installing dependencies:
 
@@ -28,6 +29,7 @@ For server-side packages:
   npm install
 For client-side packages:
   npm install
+```
 Environment Variables:
 
 Before running the application, create a .env file in the server directory and add your MongoDB URI and JWT Secret like so:
