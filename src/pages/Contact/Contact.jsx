@@ -1,7 +1,7 @@
 function Contact() {
   return (
     <div className="contact-us mx-auto max-w-4xl p-4">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+      <h1 className="text-2xl md:text-3xl text-center font-bold text-gray-900 mb-16">
         Contact Us
       </h1>
       <p className="text-gray-600 mb-4">

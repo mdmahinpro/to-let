@@ -1,64 +1,62 @@
-import React from "react";
-
 function Features() {
   return (
     <div className="features mx-auto max-w-7xl p-6">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
+      <h1 className="text-2xl md:text-3xl text-center font-bold text-gray-900 mb-16">
         Features
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="feature-item bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold text-gray-700 mb-3">
-            Search & Filter
+            Advanced Search Options
           </h2>
           <p className="text-gray-600">
-            Use our advanced search options to find your perfect home by
-            filtering based on location, price, number of bedrooms, and more.
+            Utilize advanced search and filtering to locate the perfect property
+            by price, location, number of bedrooms, and additional amenities.
           </p>
         </div>
         <div className="feature-item bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold text-gray-700 mb-3">
-            User Accounts
+            User Profiles
           </h2>
           <p className="text-gray-600">
-            Create your own account to save your favorite listings, manage your
-            advertisements, and access tailored recommendations.
+            Users can create profiles to manage their listings, save favorites,
+            and receive personalized property alerts.
           </p>
         </div>
         <div className="feature-item bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold text-gray-700 mb-3">
-            Direct Messaging
+            Secure Property Listing Management
           </h2>
           <p className="text-gray-600">
-            Communicate directly with landlords or potential tenants through our
-            secure messaging platform to discuss details and arrange viewings.
+            Owners can add, update, or remove property listings with ease,
+            maintaining full control over their advertisements.
           </p>
         </div>
         <div className="feature-item bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold text-gray-700 mb-3">
-            Property Verification
+            Image Uploads
           </h2>
           <p className="text-gray-600">
-            All listings are verified for accuracy and legitimacy to ensure a
-            trustworthy environment for our users.
+            Add multiple high-quality images for each listing to give potential
+            tenants a comprehensive view of your property.
           </p>
         </div>
         <div className="feature-item bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold text-gray-700 mb-3">
-            Virtual Tours
+            Authentication and Security
           </h2>
           <p className="text-gray-600">
-            Explore properties from the comfort of your own home with our
-            360-degree virtual tours.
+            Enhanced security features, including secure login and role-based
+            access control for different user types.
           </p>
         </div>
         <div className="feature-item bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold text-gray-700 mb-3">
-            Market Insights
+            Comprehensive Property Details
           </h2>
           <p className="text-gray-600">
-            Gain valuable insights into market trends and data analytics to make
-            informed decisions.
+            Each listing includes detailed descriptions and specifications such
+            as area, number of bedrooms, available amenities, and more.
           </p>
         </div>
       </div>

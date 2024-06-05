@@ -9,7 +9,7 @@ const WelcomeMessage = () => {
   return (
     <div>
       <h1>Welcome, Mr {name}</h1>
-      <p>Thanks for joining us.</p>
+      <p>Thanks for joining To-Let.</p>
     </div>
   );
 };
@@ -42,7 +42,7 @@ function Hero() {
   }, [user]);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white ">
       <div className="relative  isolate overflow-hidden bg-gradient-to-b from-indigo-100/20">
         <div className="mx-auto flex justify-center items-center max-w-7xl pb-24 pt-10 sm:pb-32 ">
           <div className="sm:mt-12  md:mx-auto md:max-w-3xl lg:mx-0 lg:mt-0 lg:w-screen">
