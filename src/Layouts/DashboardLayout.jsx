@@ -13,6 +13,7 @@ import {
 import { Fragment, useState } from "react";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import logo from "../assets/logo.png";
 import auth from "../firebase/firebase.config";
 
 const userNavigation = [
@@ -91,8 +92,8 @@ export default function Dashboard() {
                     <div className="flex h-16 shrink-0 items-center">
                       <a href="/">
                         <img
-                          className="h-8 w-auto"
-                          src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                          className="h-16 w-auto"
+                          src={logo}
                           alt="Your Company"
                         />
                       </a>
@@ -103,26 +104,26 @@ export default function Dashboard() {
                           <ul role="list" className="-mx-2 space-y-1">
                             <li>
                               <a
-                                href="/all-products"
+                                href="/all-tolets"
                                 className="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                               >
                                 <HomeIcon
                                   className="h-6 w-6 shrink-0"
                                   aria-hidden="true"
                                 />
-                                All Products
+                                All Tolets
                               </a>
                             </li>
                             <li>
                               <Link
-                                to="/add-product"
+                                to="/add-tolets"
                                 className="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                               >
                                 <UsersIcon
                                   className="h-6 w-6 shrink-0"
                                   aria-hidden="true"
                                 />
-                                Add New Product
+                                Add New Tolets
                               </Link>
                             </li>
                           </ul>
@@ -142,11 +143,7 @@ export default function Dashboard() {
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
               <a href="/">
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt="Your Company"
-                />
+                <img className="h-16 w-auto" src={logo} alt="Your Company" />
               </a>
             </div>
             <nav className="flex flex-1 flex-col">
@@ -155,26 +152,26 @@ export default function Dashboard() {
                   <ul role="list" className="-mx-2 space-y-1">
                     <li>
                       <a
-                        href="/dashboard/all-products"
+                        href="/dashboard/all-tolets"
                         className="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                       >
                         <HomeIcon
                           className="h-6 w-6 shrink-0"
                           aria-hidden="true"
                         />
-                        All Products
+                        All Tolets
                       </a>
                     </li>
                     <li>
                       <Link
-                        to="/dashboard/add-product"
+                        to="/dashboard/add-tolet"
                         className="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                       >
                         <UsersIcon
                           className="h-6 w-6 shrink-0"
                           aria-hidden="true"
                         />
-                        Add New Productss
+                        Add New Tolet
                       </Link>
                     </li>
                   </ul>

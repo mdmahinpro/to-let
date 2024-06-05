@@ -1,5 +1,5 @@
 {
-  "name": "testproject",
+  "name": "to-let",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
     "react-router-dom": "^6.23.1",
+    "react-slick": "^0.30.2",
     "react-syntax-highlighter": "^15.5.0",
     "react-typed": "^2.0.12",
     "sort-by": "^1.2.0"

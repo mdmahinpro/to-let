@@ -1,15 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import GithubSignIn from "../../components/shared/GithubSignIn";
 import GoogleSignIn from "../../components/shared/GoogleSignIn";
 import auth from "../../firebase/firebase.config";
 
 export default function Registration() {
-  const [createUserWithEmailAndPassword, user, error] =
+  const [password, setPassword] = useState("");
+  const [createUserWithEmailAndPassword, error] =
     useCreateUserWithEmailAndPassword(auth);
   const userInfo = useAuthState(auth);
   const navigate = useNavigate();
@@ -20,29 +20,37 @@ export default function Registration() {
     if (error) {
       console.log(error.message);
     }
-  }, [navigate, userInfo]);
+  }, [navigate, error, userInfo]);
+
+  const [showToast, setShowToast] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
-    const password = form.password.value;
+    userInfo.displayName = name;
+    // const password = form.password.value;
     const newUser = { name, email, password };
     createUserWithEmailAndPassword(email, password);
     console.log(newUser);
+    setShowToast(true);
+
+    console.log("user created successfully");
   };
   return (
     <>
       <div className="flex min-h-full flex-1">
-        <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        {showToast && (
+          <div className="toast toast-end">
+            <div className="alert alert-success">
+              <span>You have been registered successfully.</span>
+            </div>
+          </div>
+        )}
+        <div className="flex flex-1 flex-col justify-center px-4 py-8 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <img
-                className="h-10 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt="Your Company"
-              />
               <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
                 Register an account
               </h2>
@@ -50,12 +58,7 @@ export default function Registration() {
 
             <div className="mt-10">
               <div>
-                <form
-                  onSubmit={handleSubmit}
-                  action="#"
-                  method="POST"
-                  className="space-y-6"
-                >
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label
                       htmlFor="name"
@@ -107,8 +110,26 @@ export default function Registration() {
                         type="password"
                         autoComplete="current-password"
                         required
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                          const passwordLength = e.target.value.length;
+                          const errorMessage = document.querySelector(
+                            ".password-error-message"
+                          );
+                          if (passwordLength < 6) {
+                            errorMessage.style.display = "block";
+                          } else {
+                            errorMessage.style.display = "none";
+                          }
+                        }}
                         className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
+                      <p
+                        className="mt-2 text-sm text-red-600 password-error-message"
+                        style={{ display: "none" }}
+                      >
+                        Password must be at least 6 characters long.
+                      </p>
                     </div>
                   </div>
 
@@ -147,10 +168,8 @@ export default function Registration() {
                   </div>
                 </div>
 
-                <div className="mt-6 grid grid-cols-2 gap-4">
+                <div className="mt-6  gap-4">
                   <GoogleSignIn />
-
-                  <GithubSignIn />
                 </div>
               </div>
             </div>

@@ -1,18 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   useAuthState,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import GithubSignIn from "../../components/shared/GithubSignIn";
 import GoogleSignIn from "../../components/shared/GoogleSignIn";
 import auth from "../../firebase/firebase.config";
 
 export default function Login() {
   const userInfo = useAuthState(auth);
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     if (userInfo[0]) {
@@ -24,21 +24,17 @@ export default function Login() {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
-    const password = form.password.value;
+    // const password = form.password.value;
     signInWithEmailAndPassword(email, password);
+    console.log("Loggedin Successful");
   };
 
   return (
     <>
       <div className="flex min-h-full flex-1">
-        <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        <div className="flex flex-1 flex-col justify-center px-4 py-8 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <img
-                className="h-10 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt="Your Company"
-              />
               <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
                 Sign in to your account
               </h2>
@@ -55,12 +51,7 @@ export default function Login() {
 
             <div className="mt-10">
               <div>
-                <form
-                  onSubmit={handleSignIn}
-                  action="#"
-                  method="POST"
-                  className="space-y-6"
-                >
+                <form onSubmit={handleSignIn} className="space-y-6">
                   <div>
                     <label
                       htmlFor="email"
@@ -94,8 +85,26 @@ export default function Login() {
                         type="password"
                         autoComplete="current-password"
                         required
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                          const passwordLength = e.target.value.length;
+                          const errorMessage = document.querySelector(
+                            ".password-error-message"
+                          );
+                          if (passwordLength < 6) {
+                            errorMessage.style.display = "block";
+                          } else {
+                            errorMessage.style.display = "none";
+                          }
+                        }}
                         className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
+                      <p
+                        className="mt-2 text-sm text-red-600 password-error-message"
+                        style={{ display: "none" }}
+                      >
+                        Password must be at least 6 characters long.
+                      </p>
                     </div>
                   </div>
 
@@ -151,10 +160,8 @@ export default function Login() {
                   </div>
                 </div>
 
-                <div className="mt-6 grid grid-cols-2 gap-4">
+                <div className="mt-6  gap-4">
                   <GoogleSignIn />
-
-                  <GithubSignIn />
                 </div>
               </div>
             </div>

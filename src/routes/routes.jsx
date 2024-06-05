@@ -1,16 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import MainLayout from "../Layouts/MainLayout";
-import SingleProductDetails from "../components/SingleProductDetails";
-import AddNewProduct from "../components/dashboard/AddNewProduct";
-import EditProduct from "../components/dashboard/EditProduct";
-import ManageAllProducts from "../components/dashboard/ManageAllProducts";
-import Contact from "../pages/Contact/Contact";
-import ErrorPage from "../pages/Error/ErrorPage";
-import Home from "../pages/Home/Home";
-import Login from "../pages/Login/Login";
-import Registration from "../pages/Registration/Registration";
-import PrivateRoute from "./PrivateRoute";
+import ToletDetails from "../components/SubComponent/ToLetCardDetails";
+import AboutUs from "../pages/about-us/AboutUs";
+import Contact from "../pages/contact/Contact";
+import AddNewTolet from "../pages/dashboard/AddNewTolet";
+import EditTolet from "../pages/dashboard/EditTolet";
+import ManageAllTolets from "../pages/dashboard/ManageAllTolets";
+import ErrorPage from "../pages/error/ErrorPage";
+import Features from "../pages/features/Features";
+import Home from "../pages/home/Home";
+import Login from "../pages/login/Login";
+import Profile from "../pages/profile/Profile";
+import Registration from "../pages/registration/Registration";
+import PrivateRoute from "../routes/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -35,11 +38,20 @@ export const router = createBrowserRouter([
         element: <Registration />, // Registration component
       },
       {
-        path: "/products/:id",
-        element: <SingleProductDetails />,
+        path: "about-us", // AboutUs path
+        element: <AboutUs />, // AboutUs component
+      },
+      {
+        path: "Features", // Features path
+        element: <Features />, // Features component
+      },
+
+      {
+        path: "tolets/:id",
+        element: <ToletDetails />,
         loader: async ({ params }) => {
           const response = await fetch(
-            `http://localhost:3000/products/${params.id}`
+            `http://localhost:5000/tolets/${params.id}`
           );
           if (!response.ok) {
             throw new Error(`Could not fetch product with id ${params.id}`);
@@ -51,7 +63,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -62,26 +78,30 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/all-products",
+        path: "/dashboard/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/dashboard/all-tolets",
         element: (
           <PrivateRoute>
-            <ManageAllProducts />
+            <ManageAllTolets />
           </PrivateRoute>
         ),
       },
       {
-        path: "/dashboard/add-product",
+        path: "/dashboard/add-tolet",
         element: (
           <PrivateRoute>
-            <AddNewProduct />
+            <AddNewTolet />
           </PrivateRoute>
         ),
       },
       {
-        path: `/dashboard/edit-product/:id`,
+        path: `/dashboard/edit-tolet/:id`,
         element: (
           <PrivateRoute>
-            <EditProduct />
+            <EditTolet />
           </PrivateRoute>
         ),
       },

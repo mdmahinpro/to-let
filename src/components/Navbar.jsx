@@ -2,6 +2,8 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment } from "react";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
 import auth from "../firebase/firebase.config";
 
 function classNames(...classes) {
@@ -17,7 +19,6 @@ export default function Navbar() {
       alert("Signout Successfully");
     }
   };
-  console.log(user);
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -27,11 +28,7 @@ export default function Navbar() {
             <div className="flex justify-between items-center">
               <div className="flex-shrink-0">
                 <a href="/">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=green&shade=500"
-                    alt="Your Company"
-                  />
+                  <img className="h-16 w-auto" src={logo} alt="Your Company" />
                 </a>
               </div>
               <div className="flex h-16 items-center justify-end ">
@@ -65,43 +62,31 @@ export default function Navbar() {
                               <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                 <Menu.Item>
                                   {({ active }) => (
-                                    <a
-                                      href="/dashboard"
+                                    <NavLink
+                                      to="/dashboard/all-tolets"
                                       className={classNames(
                                         active ? "bg-gray-100" : "",
                                         "block px-4 py-2 text-sm text-gray-700"
                                       )}
                                     >
                                       Dashboard
-                                    </a>
+                                    </NavLink>
                                   )}
                                 </Menu.Item>
                                 <Menu.Item>
                                   {({ active }) => (
-                                    <a
-                                      href="#"
+                                    <Link
+                                      to="/dashboard/profile"
                                       className={classNames(
                                         active ? "bg-gray-100" : "",
                                         "block px-4 py-2 text-sm text-gray-700"
                                       )}
                                     >
                                       Your Profile
-                                    </a>
+                                    </Link>
                                   )}
                                 </Menu.Item>
-                                <Menu.Item>
-                                  {({ active }) => (
-                                    <a
-                                      href="#"
-                                      className={classNames(
-                                        active ? "bg-gray-100" : "",
-                                        "block px-4 py-2 text-sm text-gray-700"
-                                      )}
-                                    >
-                                      Settings
-                                    </a>
-                                  )}
-                                </Menu.Item>
+
                                 <Menu.Item>
                                   {({ active }) => (
                                     <a
@@ -123,26 +108,68 @@ export default function Navbar() {
                     ) : (
                       <div className="hidden sm:ml-6 sm:block">
                         <div className="flex space-x-4">
-                          {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                          <a
-                            href="/login"
-                            className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                          <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                            }
                           >
-                            Login
-                          </a>
-
-                          <a
-                            href="/dashboard"
-                            className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                            Home
+                          </NavLink>
+                          <NavLink
+                            to="/dashboard"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                            }
                           >
                             Dashboard
-                          </a>
-                          <a
-                            href="#"
-                            className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                          </NavLink>
+
+                          <NavLink
+                            to="/features"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                            }
+                          >
+                            Features
+                          </NavLink>
+                          <NavLink
+                            to="/about-us"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                            }
+                          >
+                            About Us
+                          </NavLink>
+
+                          <NavLink
+                            to="/contact"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                            }
                           >
                             Contact
-                          </a>
+                          </NavLink>
+                          <NavLink
+                            to="/login"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                            }
+                          >
+                            Login
+                          </NavLink>
                         </div>
                       </div>
                     )}
@@ -166,30 +193,70 @@ export default function Navbar() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-              <Disclosure.Button
-                as="a"
-                href="/login"
-                className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+            <div className="space-y-2 gap-2 px-2 pb-3 pt-2 flex justify-center items-center flex-col">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-block rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                    : "inline-block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                }
               >
-                Login
-              </Disclosure.Button>
-
-              <Disclosure.Button
-                as="a"
-                href="/dashboard"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                Home
+              </NavLink>
+              <NavLink
+                to="/dashboard/all-tolets"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-block rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                    : "inline-block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                }
               >
                 Dashboard
-              </Disclosure.Button>
-              <Disclosure.Button
+              </NavLink>
+              <NavLink
                 as="a"
-                href="#"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                to="/features"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-block rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                    : "inline-block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                }
+              >
+                Features
+              </NavLink>
+
+              <NavLink
+                to="/about-us"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-block rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                    : "inline-block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                }
+              >
+                About Us
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-block rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                    : "inline-block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                }
               >
                 Contact
-              </Disclosure.Button>
+              </NavLink>
+
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-block rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                    : "inline-block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                }
+              >
+                Login
+              </NavLink>
             </div>
           </Disclosure.Panel>
         </>

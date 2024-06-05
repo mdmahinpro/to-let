@@ -45,7 +45,7 @@ function Hero() {
     <div className="bg-white">
       <div className="relative  isolate overflow-hidden bg-gradient-to-b from-indigo-100/20">
         <div className="mx-auto flex justify-center items-center max-w-7xl pb-24 pt-10 sm:pb-32 ">
-          <div className="mt-20  sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
+          <div className="sm:mt-12  md:mx-auto md:max-w-3xl lg:mx-0 lg:mt-0 lg:w-screen">
             <div
               className="absolute  inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36"
               aria-hidden="true"
@@ -71,7 +71,11 @@ function Hero() {
                       </div>
                       <div className="px-6 pb-14 pt-6 text-white">
                         <pre className="whitespace-pre-wrap">
-                          <code className="text-sm">{text}</code>
+                          {user ? (
+                            <code className="text-sm">{text}</code>
+                          ) : (
+                            "Please Login First"
+                          )}
                         </pre>
                       </div>
                     </div>
