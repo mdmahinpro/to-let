@@ -16,7 +16,7 @@ export default function ToletList() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/tolets")
+    fetch("https://tolet-backend-7e9u.onrender.com/tolets")
       .then((res) => res.json())
       .then((data) => setTolets(data))
       .catch((error) => console.error("Error fetching to-lets:", error));

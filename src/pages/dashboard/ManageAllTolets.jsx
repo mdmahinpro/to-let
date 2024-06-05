@@ -20,7 +20,9 @@ function ManageAllTolets() {
 
   const fetchTolets = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tolets");
+      const response = await fetch(
+        "https://tolet-backend-7e9u.onrender.com/tolets"
+      );
       const data = await response.json();
       setTolets(data);
     } catch (error) {
@@ -35,7 +37,7 @@ function ManageAllTolets() {
 
     if (confirmDelete) {
       try {
-        await fetch(`http://localhost:5000/tolets/${_id}`, {
+        await fetch(`https://tolet-backend-7e9u.onrender.com/tolets/${_id}`, {
           method: "DELETE",
         });
         setShowToast(true);

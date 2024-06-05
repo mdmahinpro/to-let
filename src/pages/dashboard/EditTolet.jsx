@@ -22,7 +22,7 @@ function EditTolet() {
   const [showToast, setShowToast] = useState(false);
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:5000/tolets/${id}`)
+    fetch(`https://tolet-backend-7e9u.onrender.com/tolets/${id}`)
       .then((res) => res.json())
       .then((data) => setCurrentTolet(data));
   });
@@ -98,11 +98,14 @@ function EditTolet() {
 
       if (confirmAdd) {
         try {
-          const response = await fetch(`http://localhost:5000/tolets/${id}`, {
-            method: "PATCH",
-            headers: { "Content-type": "application/json" },
-            body: JSON.stringify(updatedTolet),
-          });
+          const response = await fetch(
+            `https://tolet-backend-7e9u.onrender.com/tolets/${id}`,
+            {
+              method: "PATCH",
+              headers: { "Content-type": "application/json" },
+              body: JSON.stringify(updatedTolet),
+            }
+          );
 
           if (response.ok) {
             setShowToast(true);

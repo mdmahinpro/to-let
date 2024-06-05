@@ -88,13 +88,16 @@ function AddNewTolet() {
 
       if (confirmAdd) {
         try {
-          const response = await fetch(`http://localhost:5000/tolets`, {
-            method: "POST",
-            headers: {
-              "Content-type": "application/json",
-            },
-            body: JSON.stringify(tolet),
-          });
+          const response = await fetch(
+            `https://tolet-backend-7e9u.onrender.com/tolets`,
+            {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
+              },
+              body: JSON.stringify(tolet),
+            }
+          );
 
           if (response.ok) {
             setShowToast(true);

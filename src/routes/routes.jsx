@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
         element: <ToletDetails />,
         loader: async ({ params }) => {
           const response = await fetch(
-            `http://localhost:5000/tolets/${params.id}`
+            `https://tolet-backend-7e9u.onrender.com/tolets/${params.id}`
           );
           if (!response.ok) {
             throw new Error(`Could not fetch tolet with id ${params.id}`);
