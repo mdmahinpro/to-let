@@ -4,7 +4,7 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import loginImg from "../../assets/tolet.jpg";
+import loginImg from "../../assets/login.jpg";
 import GoogleSignIn from "../../components/shared/GoogleSignIn";
 import auth from "../../firebase/firebase.config";
 
@@ -32,14 +32,14 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1">
+      <div className="flex min-h-full bg-gray-900 text-gray-50 flex-1">
         <div className="flex flex-1 flex-col justify-center px-4 py-8 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
+              <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-100">
                 Sign in to your account
               </h2>
-              <p className="mt-2 text-sm leading-6 text-gray-500">
+              <p className="mt-2 text-sm leading-6 text-gray-100">
                 Not a member?{" "}
                 <Link
                   to="/register"
@@ -56,7 +56,7 @@ export default function Login() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="block text-sm font-medium leading-6 text-gray-100"
                     >
                       Email address
                     </label>
@@ -75,7 +75,7 @@ export default function Login() {
                   <div>
                     <label
                       htmlFor="password"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="block text-sm font-medium leading-6 text-gray-100"
                     >
                       Password
                     </label>
@@ -115,11 +115,11 @@ export default function Login() {
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        className="h-4 w-4 rounded border-gray-300 text-indigo-100 focus:ring-indigo-600"
                       />
                       <label
                         htmlFor="remember-me"
-                        className="ml-3 block text-sm leading-6 text-gray-700"
+                        className="ml-3 block text-sm leading-6 text-gray-100"
                       >
                         Remember me
                       </label>

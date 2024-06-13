@@ -1,98 +1,81 @@
-import { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../firebase/firebase.config";
+import { LifebuoyIcon, NewspaperIcon } from "@heroicons/react/20/solid";
+import { CurrencyDollarIcon } from "@heroicons/react/24/outline";
 
-const initialCodeString = `
-import React from 'react';
+const cards = [
+  {
+    name: "Low Cost",
+    description:
+      "Our course prices are as low as like a bill of your daily breakfast",
+    icon: CurrencyDollarIcon,
+  },
+  {
+    name: "Technical Support",
+    description:
+      "Our dedicated team is always here to help you in any kind of trouble during purchase",
+    icon: LifebuoyIcon,
+  },
+  {
+    name: "Qualified Instructor",
+    description:
+      "Our course are operated by world top class instructors who can help you enlighten your life",
+    icon: NewspaperIcon,
+  },
+];
 
-const WelcomeMessage = () => {
+export default function Hero() {
   return (
-    <div>
-      <h1>Welcome, Mr {name}</h1>
-      <p>Thanks for joining To-Let.</p>
-    </div>
-  );
-};
-
-export default WelcomeMessage;
-`;
-
-function Hero() {
-  const [text, setText] = useState("");
-
-  const [user] = useAuthState(auth);
-
-  useEffect(() => {
-    if (user) {
-      const name = user.displayName;
-
-      // Replace the placeholder {name} with the actual user name
-      const codeString = initialCodeString.replace("{name}", name);
-
-      let index = 0;
-      const interval = setInterval(() => {
-        setText(codeString.slice(0, index));
-        index++;
-        if (index > codeString.length) {
-          clearInterval(interval);
-        }
-      }, 50);
-      return () => clearInterval(interval);
-    }
-  }, [user]);
-
-  return (
-    <div className="bg-white ">
-      <div className="relative  isolate overflow-hidden bg-gradient-to-b from-indigo-100/20">
-        <div className="mx-auto flex justify-center items-center max-w-7xl pb-24 pt-10 sm:pb-32 ">
-          <div className="sm:mt-12  md:mx-auto md:max-w-3xl lg:mx-0 lg:mt-0 lg:w-screen">
+    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+      <img
+        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+        alt=""
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+      />
+      <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
+        <div
+          className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        />
+      </div>
+      <div className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu">
+        <div
+          className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        />
+      </div>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0">
+          <h2 className="text-4xl font-bold tracking-wider text-white sm:text-6xl">
+            Enrich your skills with Skills-Mastery
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-gray-300">
+            Our platform will help you to getting better in life with our
+            valueale courses by our Top 10 international Instructor.
+          </p>
+        </div>
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+          {cards.map((card) => (
             <div
-              className="absolute  inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36"
-              aria-hidden="true"
-            />
-            <div className="shadow-lg w-full md:rounded-3xl">
-              <div className="bg-teal-800 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
-                <div
-                  className="absolute -inset-y-px  -z-10 ml-10 w-[100%] skew-x-[-20deg] bg-indigo-400 opacity-20 ring-1 ring-inset ring-white md:ml-10 lg:ml-20"
-                  aria-hidden="true"
-                />
-                <div className="relative px-6 pt-8 sm:pt-16 md:pl-16 md:pr-0">
-                  <div className="mx-auto max-w-2xl md:mx-0 md:max-w-none">
-                    <div className="w-screen overflow-hidden rounded-tl-xl bg-gray-900">
-                      <div className="flex bg-gray-800/40 ring-1 ring-white/5">
-                        <div className="-mb-px flex text-sm font-medium leading-6 text-gray-400">
-                          <div className="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">
-                            WelcomeMessage.jsx
-                          </div>
-                          <div className="border-r border-gray-600/10 px-4 py-2">
-                            App.jsx
-                          </div>
-                        </div>
-                      </div>
-                      <div className="px-6 pb-14 pt-6 text-white">
-                        <pre className="whitespace-pre-wrap">
-                          {user ? (
-                            <code className="text-sm">{text}</code>
-                          ) : (
-                            "Please Login First"
-                          )}
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 md:rounded-3xl"
-                    aria-hidden="true"
-                  />
-                </div>
+              key={card.name}
+              className="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10"
+            >
+              <card.icon
+                className="h-7 w-5 flex-none text-indigo-400"
+                aria-hidden="true"
+              />
+              <div className="text-base leading-7">
+                <h3 className="font-semibold text-white">{card.name}</h3>
+                <p className="mt-2 text-gray-300">{card.description}</p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32" />
       </div>
     </div>
   );
 }
-
-export default Hero;

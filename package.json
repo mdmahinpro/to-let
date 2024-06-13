@@ -1,7 +1,7 @@
 {
-  "name": "to-let",
+  "name": "skills-mastery",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -40,5 +40,18 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "vite": "^5.2.0"
-  }
+  },
+  "description": "This To-Let platform is designed to help users find and list properties for rent. It allows property owners to advertise their properties by adding detailed information and images, and prospective tenants can search for properties based on their needs.",
+  "main": "postcss.config.js",
+  "keywords": [],
+  "author": "Mahin",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdmahinpro/skills-mastery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mdmahinpro/skills-mastery/issues"
+  },
+  "homepage": "https://github.com/mdmahinpro/skills-mastery#readme"
 }

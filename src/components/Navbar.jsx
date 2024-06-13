@@ -3,7 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment } from "react";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.webp";
 import auth from "../firebase/firebase.config";
 
 function classNames(...classes) {

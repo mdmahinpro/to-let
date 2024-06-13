@@ -1,17 +1,33 @@
-# To-Let Platform
+# Skills-Mastery
 
 ## Description
-This To-Let platform is designed to help users find and list properties for rent. It allows property owners to advertise their properties by adding detailed information and images, and prospective tenants can search for properties based on their needs.
+
+This project focuses on creating an online course platform using the MERN stack, where users can purchase courses through a secure payment system. Key features include user authentication, course management (view, add, edit, delete), and a secure payment gateway. The project emphasizes data integrity, security, and responsive design, with a focus on an intuitive user interface and comprehensive documentation. The timeline for completion is 2 to 3 days.
 
 ## Features
-* User Authentication: Secure login with Google or using a signup form.
-* List Properties: Users can create ads for their properties, specifying details such as title, price, location, number of bedrooms and bathrooms, availability, and more.
-* Search and Filter: Dynamic searching and filtering capabilities allow users to find properties based on various criteria.
-* Property Management: Users can manage their listings by updating or deleting them as necessary.
-* Image Uploads: Support for uploading multiple images for each property.
-* Secure Transactions: All sensitive routes (like those handling CRUD operations) are secured using JWT tokens to ensure that only authenticated users can access them.
-* Responsive Design: The site is responsive and designed to work on both desktop and mobile devices.
-Local Setup
+
+- User Authentication: Secure login with Google or using a signup form.
+- Course management:
+  View course listings
+  Add new courses with details (name, description, price, image, etc.)
+  Edit and delete own courses
+  Manage course enrollments
+- Payment system integration:
+  Secure payment gateway for users to purchase courses
+  Track course purchases and revenue.
+- Responsive design:
+  Desktop version with sidebar navigation
+  Mobile version with toggled menu
+  Adjust font sizes according to screen size.
+- User interface design:
+  Pleasing color combination and layout
+  Easy-to-use navigation and course browsing
+- Data validation and error handling:
+  Form validation for data integrity
+  Error handling for user feedback and troubleshooting
+- Documentation:
+  Clear setup, usage, and testing instructions.
+  Local Setup
 
 ## Prerequisites:
 
@@ -19,6 +35,7 @@ Node.js
 MongoDB
 Git
 Cloning the repository:
+
 ```
 git clone -routeName
 Installing dependencies:
@@ -31,6 +48,7 @@ For server-side packages:
 For client-side packages:
   npm install
 ```
+
 Environment Variables:
 
 Before running the application, create a .env file in the server directory and add your MongoDB URI and JWT Secret like so:
@@ -51,4 +69,5 @@ To run the React client, open another terminal and run:
 The application will be available at your web browser.
 
 ## Contact
+
 For any queries regarding the application, please reach out via email at mdmahin.pro@gmail.com.

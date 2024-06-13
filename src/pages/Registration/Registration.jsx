@@ -4,7 +4,7 @@ import {
   useCreateUserWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import toletImg from "../../assets/tolet2.jpg";
+import toletImg from "../../assets/registration.jpg";
 import GoogleSignIn from "../../components/shared/GoogleSignIn";
 import auth from "../../firebase/firebase.config";
 
@@ -41,7 +41,7 @@ export default function Registration() {
   };
   return (
     <>
-      <div className="flex min-h-full flex-1">
+      <div className="flex min-h-full flex-1 bg-gray-900">
         {showToast && (
           <div className="toast toast-end">
             <div className="alert alert-success">
@@ -52,7 +52,7 @@ export default function Registration() {
         <div className="flex flex-1 flex-col justify-center px-4 py-8 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
+              <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-100">
                 Register an account
               </h2>
             </div>
@@ -63,7 +63,7 @@ export default function Registration() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="block text-sm font-medium leading-6 text-gray-100"
                     >
                       Name
                     </label>
@@ -81,7 +81,7 @@ export default function Registration() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="block text-sm font-medium leading-6 text-gray-100"
                     >
                       Email address
                     </label>
@@ -100,7 +100,7 @@ export default function Registration() {
                   <div>
                     <label
                       htmlFor="password"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="block text-sm font-medium leading-6 text-gray-100"
                     >
                       Password
                     </label>
@@ -142,10 +142,10 @@ export default function Registration() {
                       Register
                     </button>
                   </div>
-                  <p className="text-center">
+                  <p className="text-center text-gray-50">
                     Already have an account?{" "}
                     <Link
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
+                      className="font-semibold text-indigo-100 hover:text-indigo-500"
                       to="/login"
                     >
                       Login

@@ -1,16 +1,17 @@
 import Hero from "../../components/Hero";
-import ToletList from "../../components/home/ToletList";
-import AboutUs from "../about-us/AboutUs";
+import CourseList from "../../components/home/CourseList";
 import Contact from "../contact/Contact";
 import Features from "../features/Features";
+import Testimonial from "../testimonial/Testimonial";
 
 function Home() {
   return (
-    <div>
+    <div className="bg-gray-900 pb-8">
       <Hero />
-      <ToletList />
+      <CourseList />
+      <Testimonial />
       <Features />
-      <AboutUs />
+      {/* <AboutUs /> */}
       <Contact />
     </div>
   );

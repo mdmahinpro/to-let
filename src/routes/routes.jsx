@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import MainLayout from "../Layouts/MainLayout";
-import ToletDetails from "../components/SubComponent/ToLetCardDetails";
+import CourseDetails from "../components/SubComponent/CourseDetails";
 import AboutUs from "../pages/about-us/AboutUs";
 import Contact from "../pages/contact/Contact";
 import AddNewTolet from "../pages/dashboard/AddNewTolet";
@@ -47,11 +47,11 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "tolets/:id",
-        element: <ToletDetails />,
+        path: "courses/:id",
+        element: <CourseDetails />,
         loader: async ({ params }) => {
           const response = await fetch(
-            `https://tolet-backend-7e9u.onrender.com/tolets/${params.id}`
+            `http://localhost:5000/courses/${params.id}`
           );
           if (!response.ok) {
             throw new Error(`Could not fetch tolet with id ${params.id}`);

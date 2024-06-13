@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const uri =
-  "mongodb+srv://mahinbinraihan123:NEtl3gUupQ9jmQRJ@cluster0.iymbxs0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://mahinbinraihan123:RUpPOcnfEQIEyVjV@cluster0.jebhpvx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -24,44 +24,45 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
-    const toletDB = client.db("toletDB");
-    const toletsCollection = toletDB.collection("toletsCollection");
+    const courseDB = client.db("courseDB");
+    const courseCollection = courseDB.collection("courseCollection");
 
-    app.get("/tolets", async (req, res) => {
-      const allTolets = toletsCollection.find();
-      const result = await allTolets.toArray();
+    //Working fine
+    app.get("/courses", async (req, res) => {
+      const allCourses = courseCollection.find();
+      const result = await allCourses.toArray();
       res.send(result);
     });
 
-    app.get("/tolets/:id", async (req, res) => {
+    app.get("/courses/:id", async (req, res) => {
       const id = req.params.id;
-      const tolet = await toletsCollection.findOne({
+      const course = await courseCollection.findOne({
         _id: new ObjectId(id),
       });
-      res.send(tolet);
+      res.send(course);
     });
 
-    app.post("/tolets", async (req, res) => {
-      const toletData = req.body;
-      const result = await toletsCollection.insertOne(toletData);
+    app.post("/courses", async (req, res) => {
+      const courseData = req.body;
+      const result = await courseCollection.insertOne(courseData);
       res.send(result);
     });
 
-    app.patch("/tolets/:id", async (req, res) => {
+    app.patch("/courses/:id", async (req, res) => {
       const id = req.params.id;
-      const updatedTolet = req.body;
-      const result = await toletsCollection.updateOne(
+      const updatedCourse = req.body;
+      const result = await courseCollection.updateOne(
         {
           _id: new ObjectId(id),
         },
-        { $set: updatedTolet }
+        { $set: updatedCourse }
       );
       res.send(result);
     });
 
-    app.delete("/tolets/:id", async (req, res) => {
+    app.delete("/courses/:id", async (req, res) => {
       const id = req.params.id;
-      const result = await toletsCollection.deleteOne({
+      const result = await courseCollection.deleteOne({
         _id: new ObjectId(id),
       });
       res.send(result);

@@ -13,7 +13,7 @@ import {
 import { Fragment, useState } from "react";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.webp";
 import auth from "../firebase/firebase.config";
 
 const userNavigation = [
